@@ -1,0 +1,15 @@
+# Dependencies for the notebooks in code/ (Kernel Hierarchies for Global Optimisation).
+# Stored outputs were produced with Python 3.13.3, numpy 2.3.3, scipy 1.16.1, matplotlib 3.10.6,
+# cvxpy 1.9.1, clarabel 0.11.1, scs 3.2.11, mpmath 1.3.0, joblib 1.5.2, sympy 1.13.3.
+# Solver statuses ("optimal_inaccurate", Clarabel failures on some re-solves) may depend on the
+# cvxpy/Clarabel/SCS versions.
+numpy>=1.24
+scipy>=1.11          # bench_global_opt, Kernel-Hierarchies, bench_rate, bench_rate_check
+matplotlib>=3.7
+cvxpy>=1.4           # interface to Clarabel and SCS
+clarabel>=0.6
+scs>=3.2
+mpmath>=1.3          # bench_comparison (high-precision condition numbers), bench_rate_check (40-digit solves)
+sympy>=1.12          # bench_rate_check (exact rational verification)
+joblib>=1.3          # robustness_sec6, robustness_sec6_full (parallel draws)
+jupyter              # nbconvert/nbclient, to execute the notebooks
