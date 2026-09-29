@@ -20,7 +20,7 @@ figs/extra/              further figures produced by the benchmark and robustnes
 | Notebook | Paper | What it does | Run time (approx.) |
 |---|---|---|---|
 | `Kernel-Hierarchies.ipynb` | whole paper | Companion tutorial on small examples (kernels, moment cone, the constant function, the relaxation, flat extension, Christoffel strengthening, a 1-D sketched BLASSO), and a table checking the numbers quoted in the paper against the stored outputs of the other notebooks | 5 s (`RUN_FULL = False`) |
-| `bench_rate.ipynb` | §5.5, Figure 1 | Convergence rate of Theorem 14: certified brackets for λ_{d,n} and ρ_{d,n} with its own primal–dual interior-point solver in a tensor Chebyshev basis; draws `figs/fig_rate.pdf` | 4 s from the cache (`RECOMPUTE = False`) |
+| `bench_rate.ipynb` | §5.5, Figure 1 | Convergence rate of Theorem 13: certified brackets for λ_{d,n} and ρ_{d,n} with its own primal–dual interior-point solver in a tensor Chebyshev basis; draws `figs/fig_rate.pdf` | 4 s from the cache (`RECOMPUTE = False`) |
 | `bench_rate_check.ipynb` | §5.5, Figure 1 | Independent cross-check of `bench_rate.ipynb`: collocation formulation in a Legendre basis, own interior-point solver in float64 and 40-digit arithmetic, exact rational verification on the interval | about 50 min |
 | `bench_global_opt.ipynb` | §5.7, Figure 2 | Numerical illustration of the global-minimisation hierarchy (§4–§5): bounds, flat truncation and extraction, the ball-constraint remark, the non-compact case; draws `figs/fig_global_opt.pdf` | about 1 min |
 | `bench_comparison.ipynb` | §5.7, Table 1 | Comparison with the standard Lasserre hierarchy at equal moment-matrix size, and conditioning of the moment matrices | about 6 min |
