@@ -20,14 +20,14 @@ figs/extra/              further figures produced by the benchmark and robustnes
 | Notebook | Paper | What it does | Run time (approx.) |
 |---|---|---|---|
 | `Kernel-Hierarchies.ipynb` | whole paper | Companion tutorial on small examples (kernels, moment cone, the constant function, the relaxation, flat extension, Christoffel strengthening, a 1-D sketched BLASSO), and a table checking the numbers quoted in the paper against the stored outputs of the other notebooks | 5 s (`RUN_FULL = False`) |
-| `bench_rate.ipynb` | §5.5, Figure 1 | Convergence rate of Theorem 13: certified brackets for λ_{d,n} and ρ_{d,n} with its own primal–dual interior-point solver in a tensor Chebyshev basis; draws `figs/fig_rate.pdf` | 4 s from the cache (`RECOMPUTE = False`) |
-| `bench_rate_check.ipynb` | §5.5, Figure 1 | Independent cross-check of `bench_rate.ipynb`: collocation formulation in a Legendre basis, own interior-point solver in float64 and 40-digit arithmetic, exact rational verification on the interval | about 50 min |
-| `bench_global_opt.ipynb` | §5.7, Figure 2 | Numerical illustration of the global-minimisation hierarchy (§4–§5): bounds, flat truncation and extraction, the ball-constraint remark, the non-compact case; draws `figs/fig_global_opt.pdf` | about 1 min |
-| `bench_comparison.ipynb` | §5.7, Table 1 | Comparison with the standard Lasserre hierarchy at equal moment-matrix size, and conditioning of the moment matrices | 4–6 min |
-| `fig_blasso_2dgmm.ipynb` | §6.5, Figures 3–4 | Two-dimensional Gaussian mixture: recovery at two bands, singular values, dual certificates | about 10 s |
-| `fig_deconv_2d.ipynb` | §6.6, Figures 5–7 | Off-the-grid deconvolution of a signed measure, SNR sweep, rank-tolerance sensitivity, Christoffel (H1) correction | several minutes |
-| `robustness_sec6.ipynb` | §6.5–§6.6 | Robustness of the §6 experiments over 20 draws per point (the numbers quoted in the paper) | 15–25 min |
-| `robustness_sec6_full.ipynb` | §6.5–§6.6 | The same with `FULL = True` (50 draws per point); stored run, not quoted in the paper | about 75 min |
+| `bench_rate.ipynb` | §3.6, Figure 1 | Convergence rate of Theorem 13: certified brackets for λ_{d,n} and ρ_{d,n} with its own primal–dual interior-point solver in a tensor Chebyshev basis; draws `figs/fig_rate.pdf` | 4 s from the cache (`RECOMPUTE = False`) |
+| `bench_rate_check.ipynb` | §3.6, Figure 1 | Independent cross-check of `bench_rate.ipynb`: collocation formulation in a Legendre basis, own interior-point solver in float64 and 40-digit arithmetic, exact rational verification on the interval | about 50 min |
+| `bench_global_opt.ipynb` | §3.7, Figure 2 | Numerical illustration of the global-minimisation hierarchy (Section 3): bounds, flat truncation and extraction, the ball-constraint remark, the non-compact case; draws `figs/fig_global_opt.pdf` | about 1 min |
+| `bench_comparison.ipynb` | §3.7, Table 1 | Comparison with the standard Lasserre hierarchy at equal moment-matrix size, and conditioning of the moment matrices | 4–6 min |
+| `fig_blasso_2dgmm.ipynb` | §4.4, Figures 3–4 | Two-dimensional Gaussian mixture: recovery at two bands, singular values, dual certificates | about 10 s |
+| `fig_deconv_2d.ipynb` | §4.5, Figures 5–7 | Off-the-grid deconvolution of a signed measure, SNR sweep, rank-tolerance sensitivity, Christoffel (H1) correction | several minutes |
+| `robustness.ipynb` | §4.4–§4.5 | Robustness of the Section 4 experiments over 20 draws per point (the numbers quoted in the paper) | 15–25 min |
+| `robustness_full.ipynb` | §4.4–§4.5 | The same with `FULL = True` (50 draws per point); stored run, not quoted in the paper | about 75 min |
 
 Run times were measured on a 10-core laptop (Apple silicon).
 
@@ -48,7 +48,7 @@ Flags at the top of some notebooks:
 
 - `Kernel-Hierarchies.ipynb`: `RUN_FULL = True` re-executes the other notebooks on copies in a temporary directory; `WRITE_FIGS = True` also copies their figures into `figs/`.
 - `bench_rate.ipynb`: `RECOMPUTE = True` recomputes the cached brackets in `code/bench_rate_results/` instead of loading them.
-- `robustness_sec6.ipynb`: `FULL = True` gives the 50-draw study stored in `robustness_sec6_full.ipynb`.
+- `robustness.ipynb`: `FULL = True` gives the 50-draw study stored in `robustness_full.ipynb`.
 
 ## Solvers
 
