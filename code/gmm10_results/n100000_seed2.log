@@ -1,0 +1,16 @@
+[sketch] n=100000 m=200 time 0.4s | noise linf 4.91e-03 rms 2.13e-03 | trunc(r=6) linf 1.61e-07 rms 1.59e-08 | Ghat min 0.482 | max|xi^T t_k| 0.46
+[sdp] p=10 D=3 r=6 d=0: N=8008 moments, M_D 286x286, M_2(g) 66x66, build 0.3s
+[sdp] SCS status=optimal value=0.0031360418274404625 iters=425 time 10.3s (solver 9.103573875) | maxrss 1.91 GB
+[rank] masses L(theta): + 0.983832, - -7.59e-14 | ranks M_t(y+) (tol 0.001): {0: 1, 1: 3, 2: 3, 3: 3}
+       sv M_0: 1.0e+00
+       sv M_1: 1.0e+00 5.3e-02 1.5e-02 1.6e-12 1.1e-12 8.9e-13 7.1e-13 3.5e-13
+       sv M_2: 1.0e+00 5.5e-02 1.8e-02 7.5e-12 6.9e-12 3.7e-12 3.0e-12 2.6e-12
+       sv M_3: 1.0e+00 5.5e-02 1.8e-02 8.7e-12 8.0e-12 5.1e-12 4.0e-12 4.0e-12
+[extract] 3 atoms, weights [0.48164 0.39245 0.10975]; match {'pos_err': [0.3093900535390746, 0.15166255701733833, 0.4901777428922661], 'w_err': [0.08163778015465989, 0.24025426178711354, 0.1424489390596949], 'pos_err_max': 0.4901777428922661, 'w_err_max': 0.24025426178711354}
+[value] rho (SDP) = 3.136041827440e-03 | J~(extracted) = 3.136041827441e-03 | J~(truth) = 3.164271839878e-03
+[polish] |grad| 5.8e-18 after 2 Newton its (0.0s); J~(polished) = 3.136041827440795e-03; moved pos 2.3e-08, w 9.5e-09; match {'pos_err': [0.3093900508801895, 0.1516625653883594, 0.4901777406771448], 'w_err': [0.08163777667949507, 0.2402542523263004, 0.14244893307325185], 'pos_err_max': 0.4901777406771448, 'w_err_max': 0.2402542523263004}
+[gap] (J~ext - J~pol)/J~pol = 1.38e-16 ; (J~pol - rho)/J~pol = 1.06e-13
+[polish exact exp] J = 3.136041827195e-03 |grad| 3.6e-17; match {'pos_err': [0.3093899565722768, 0.15164830971652046, 0.490183410867984], 'w_err': [0.08163546819054729, 0.24026756245982417, 0.14246455208087122], 'pos_err_max': 0.490183410867984, 'w_err_max': 0.24026756245982417}
+[cert] eta at polished atoms: [1. 1. 1.]; multistart sup_X eta = 1.000000000000 (sup-1 = 4.44e-16)
+[sos] identity residual: coeff linf 3.5e-14, sup bound 5.1e-11 (= 1.6e-08 x pen); min eig Z0 -3.1e-19, Z1 -1.3e-19
+[done] total 11.5s

@@ -1,0 +1,16 @@
+[sketch] n=300000 m=200 time 1.1s | noise linf 3.54e-03 rms 1.44e-03 | trunc(r=6) linf 1.61e-07 rms 1.59e-08 | Ghat min 0.482 | max|xi^T t_k| 0.46
+[sdp] p=10 D=3 r=6 d=0: N=8008 moments, M_D 286x286, M_2(g) 66x66, build 0.3s
+[sdp] SCS status=optimal value=0.0018168673894749226 iters=400 time 9.3s (solver 8.000541583) | maxrss 1.91 GB
+[rank] masses L(theta): + 0.990234, - -4.40e-14 | ranks M_t(y+) (tol 0.001): {0: 1, 1: 3, 2: 3, 3: 3}
+       sv M_0: 1.0e+00
+       sv M_1: 1.0e+00 1.0e-01 6.8e-02 1.9e-11 1.2e-11 9.4e-12 6.8e-12 5.9e-12
+       sv M_2: 1.0e+00 1.1e-01 7.2e-02 2.0e-10 1.7e-10 1.5e-10 6.0e-11 4.6e-11
+       sv M_3: 1.0e+00 1.1e-01 7.3e-02 2.0e-10 1.8e-10 1.5e-10 6.6e-11 5.3e-11
+[extract] 3 atoms, weights [0.47776 0.25387 0.2586 ]; match {'pos_err': [0.20439100894203313, 0.09870745286793638, 0.2141284134601719], 'w_err': [0.07776245742081461, 0.0913977756338441, 0.0038693158071812506], 'pos_err_max': 0.2141284134601719, 'w_err_max': 0.0913977756338441}
+[value] rho (SDP) = 1.816867389475e-03 | J~(extracted) = 1.816867389477e-03 | J~(truth) = 1.827030876906e-03
+[polish] |grad| 3.6e-17 after 3 Newton its (0.0s); J~(polished) = 1.816867389476970e-03; moved pos 8.2e-07, w 6.2e-07; match {'pos_err': [0.20439121367378557, 0.09870689722697074, 0.21412880405060342], 'w_err': [0.0777627200110777, 0.09139839748075573, 0.0038696750841216154], 'pos_err_max': 0.21412880405060342, 'w_err_max': 0.09139839748075573}
+[gap] (J~ext - J~pol)/J~pol = 1.19e-16 ; (J~pol - rho)/J~pol = 1.13e-12
+[polish exact exp] J = 1.816867389081e-03 |grad| 1.6e-17; match {'pos_err': [0.20439282111788426, 0.09870389483383309, 0.21413012651843355], 'w_err': [0.07776505224416136, 0.09140184741146185, 0.0038707931833401044], 'pos_err_max': 0.21413012651843355, 'w_err_max': 0.09140184741146185}
+[cert] eta at polished atoms: [1. 1. 1.]; multistart sup_X eta = 1.000000000000 (sup-1 = -1.12e-14)
+[sos] identity residual: coeff linf 1.4e-12, sup bound 2.5e-09 (= 1.4e-06 x pen); min eig Z0 -1.0e-19, Z1 -3.1e-20
+[done] total 11.1s

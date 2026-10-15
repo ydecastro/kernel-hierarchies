@@ -1,0 +1,16 @@
+[sketch] n=1000000 m=50 time 0.9s | noise linf 1.68e-03 rms 7.96e-04 | trunc(r=6) linf 1.73e-07 rms 2.46e-08 | Ghat min 0.527 | max|xi^T t_k| 0.45
+[sdp] p=10 D=3 r=6 d=0: N=8008 moments, M_D 286x286, M_2(g) 66x66, build 0.2s
+[sdp] SCS status=optimal value=0.0009967736994084897 iters=450 time 7.0s (solver 6.686556791) | maxrss 0.59 GB
+[rank] masses L(theta): + 0.993777, - -2.59e-12 | ranks M_t(y+) (tol 0.001): {0: 1, 1: 3, 2: 3, 3: 3}
+       sv M_0: 1.0e+00
+       sv M_1: 1.0e+00 1.3e-01 6.9e-02 2.4e-11 2.3e-11 1.9e-11 7.6e-12 5.2e-12
+       sv M_2: 1.0e+00 1.4e-01 7.2e-02 2.5e-11 2.4e-11 2.3e-11 2.0e-11 1.2e-11
+       sv M_3: 1.0e+00 1.4e-01 7.3e-02 2.9e-11 2.6e-11 2.4e-11 2.1e-11 1.6e-11
+[extract] 3 atoms, weights [0.33754 0.28719 0.36905]; match {'pos_err': [0.1464694180747526, 0.17035660026371613, 0.25522758410864244], 'w_err': [0.030947499707813908, 0.012460925573797355, 0.03718523181814731], 'pos_err_max': 0.25522758410864244, 'w_err_max': 0.03718523181814731}
+[value] rho (SDP) = 9.967736994085e-04 | J~(extracted) = 9.967736994123e-04 | J~(truth) = 1.000316523905e-03
+[polish] |grad| 3.6e-17 after 3 Newton its (0.0s); J~(polished) = 9.967736994123211e-04; moved pos 2.3e-09, w 1.2e-09; match {'pos_err': [0.14646941709205477, 0.17035660028838845, 0.2552275837118862], 'w_err': [0.030947500912859804, 0.012460925077903418, 0.037185232529139356], 'pos_err_max': 0.2552275837118862, 'w_err_max': 0.037185232529139356}
+[gap] (J~ext - J~pol)/J~pol = 0.00e+00 ; (J~pol - rho)/J~pol = 3.84e-12
+[polish exact exp] J = 9.967736988082e-04 |grad| 5.0e-17; match {'pos_err': [0.14647026331855395, 0.1703576280708205, 0.25522356749870845], 'w_err': [0.030943314668097188, 0.012460589959149782, 0.03718071077173779], 'pos_err_max': 0.25522356749870845, 'w_err_max': 0.03718071077173779}
+[cert] eta at polished atoms: [1. 1. 1.]; multistart sup_X eta = 1.000000000000 (sup-1 = 2.13e-14)
+[sos] identity residual: coeff linf 1.5e-14, sup bound 4.1e-11 (= 4.1e-08 x pen); min eig Z0 -1.5e-19, Z1 -2.2e-20
+[done] total 8.5s

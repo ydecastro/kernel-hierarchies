@@ -11,23 +11,27 @@ Repository: <https://github.com/ydecastro/kernel-hierarchies>
 ## Layout
 
 ```
-code/                    notebooks (outputs stored), requirements.txt
-code/bench_rate_results/ cached certified brackets used by bench_rate.ipynb
-figs/                    the paper's figures (PDF), README.txt
-figs/extra/              further figures produced by the benchmark and robustness notebooks
+code/                          notebooks (outputs stored), requirements.txt
+code/bench_rate_results/       cached certified brackets used by bench_rate.ipynb
+code/gmm10_results/            stored results of the ten-dimensional mixture (fig_gmm10.ipynb, Figure 1)
+code/blasso2d_sketch_results/  stored results of the planar sketched run (fig_blasso_2d_sketch.ipynb, Figure 4)
+figs/                          the paper's figures (PDF), README.txt
+figs/extra/                    further figures produced by the benchmark and robustness notebooks
 ```
 
 | Notebook | Paper | What it does | Run time (approx.) |
 |---|---|---|---|
-| `Kernel-Hierarchies.ipynb` | whole paper | Companion tutorial on small examples (kernels, moment cone, the constant function, the relaxation, flat extension, Christoffel strengthening, a 1-D sketched BLASSO), and a table checking the numbers quoted in the paper against the stored outputs of the other notebooks | 5 s (`RUN_FULL = False`) |
-| `bench_rate.ipynb` | §3.6, Figure 1 | Convergence rate of Theorem 13: certified brackets for λ_{d,n} and ρ_{d,n} with its own primal–dual interior-point solver in a tensor Chebyshev basis; draws `figs/fig_rate.pdf` | 4 s from the cache (`RECOMPUTE = False`) |
-| `bench_rate_check.ipynb` | §3.6, Figure 1 | Independent cross-check of `bench_rate.ipynb`: collocation formulation in a Legendre basis, own interior-point solver in float64 and 40-digit arithmetic, exact rational verification on the interval | about 50 min |
-| `bench_global_opt.ipynb` | §3.7, Figure 2 | Numerical illustration of the global-minimisation hierarchy (Section 3): bounds, flat truncation and extraction, the ball-constraint remark, the non-compact case; draws `figs/fig_global_opt.pdf` | about 1 min |
-| `bench_comparison.ipynb` | §3.7, Table 1 | Comparison with the standard Lasserre hierarchy at equal moment-matrix size, and conditioning of the moment matrices | 4–6 min |
-| `fig_blasso_2dgmm.ipynb` | §4.4, Figures 3–4 | Two-dimensional Gaussian mixture: recovery at two bands, singular values, dual certificates | about 10 s |
-| `fig_deconv_2d.ipynb` | §4.5, Figures 5–7 | Off-the-grid deconvolution of a signed measure, SNR sweep, rank-tolerance sensitivity, Christoffel (H1) correction | several minutes |
-| `robustness.ipynb` | §4.4–§4.5 | Robustness of the Section 4 experiments over 20 draws per point (the numbers quoted in the paper) | 15–25 min |
-| `robustness_full.ipynb` | §4.4–§4.5 | The same with `FULL = True` (50 draws per point); stored run, not quoted in the paper | about 75 min |
+| `Kernel-Hierarchies.ipynb` | whole paper | Companion tutorial on small examples (kernels, moment cone, the constant function, the relaxation, flat extension, Christoffel strengthening (after Đurašinović et al., 2025; not in the paper), a 1-D sketched BLASSO), and a table checking the numbers quoted in the paper against the stored outputs of the other notebooks | 5 s (`RUN_FULL = False`) |
+| `fig_gmm10.ipynb` | Introduction, Figure 1 | Ten-dimensional Gaussian mixture (three spikes, $n=10^6$, $m=200$ sketches) with the sketched kernel moment–SoS relaxation: right number of spikes and global minimum to machine precision; draws `figs/fig_gmm10.pdf` from the stored results in `code/gmm10_results/` | seconds (`RECOMPUTE = False`; about 10 min to recompute) |
+| `bench_rate.ipynb` | §3.5, Figure 2 | Convergence rate of Theorem 12: certified brackets for λ_{d,n} and ρ_{d,n} with its own primal–dual interior-point solver in a tensor Chebyshev basis; draws `figs/fig_rate.pdf` | 4 s from the cache (`RECOMPUTE = False`) |
+| `bench_rate_check.ipynb` | §3.5, Figure 2 | Independent cross-check of `bench_rate.ipynb`: collocation formulation in a Legendre basis, own interior-point solver in float64 and 40-digit arithmetic, exact rational verification on the interval | about 40 min |
+| `bench_global_opt.ipynb` | §3.6, Figure 3 | Numerical illustration of the global-minimisation hierarchy (Section 3): bounds, flat truncation and extraction, the ball-constraint remark, the non-compact case; draws `figs/fig_global_opt.pdf` | about 6 min |
+| `bench_comparison.ipynb` | §3.6, Table 1 | Comparison with the standard Lasserre hierarchy at equal moment-matrix size, and conditioning of the moment matrices | about 12 min |
+| `fig_blasso_2d_sketch.ipynb` | §4.4, Figure 4 | Planar Gaussian mixture with the sketched relaxation: rank three and the n^{-1/2} rate from n = 10^3 to 10^6, sweeps over the sketch size, the truncation degree and the band; draws `figs/fig_blasso2d_sketch.pdf` from the stored results in `code/blasso2d_sketch_results/` | seconds (`RECOMPUTE = False`; about 3 min to recompute, one single-threaded process) |
+| `fig_blasso_2dgmm.ipynb` | §4.4, Figures 5–6 | Two-dimensional Gaussian mixture: recovery at two bands, singular values, dual certificates | about 7 min |
+| `fig_deconv_2d.ipynb` | §4.5, Figures 7–8 | Off-the-grid deconvolution of a signed measure, SNR sweep, rank-tolerance sensitivity, Christoffel (H1) correction (`figs/fig_deconv_2d_h1.pdf`, a former figure, no longer in the paper) | about 3.5 to 4 h |
+| `robustness.ipynb` | §4.4–§4.5 | Robustness of the Section 4 experiments over 20 draws per point (the numbers quoted in the paper) | about 8 h (4 single-threaded workers) |
+| `robustness_full.ipynb` | §4.4–§4.5 | The same with `FULL = True` (50 draws per point); stored run, not quoted in the paper | about 21 h (4 single-threaded workers) |
 
 Run times were measured on a 10-core laptop (Apple silicon).
 
@@ -52,7 +56,7 @@ Flags at the top of some notebooks:
 
 ## Solvers
 
-Most semidefinite programs are posed with CVXPY and solved with Clarabel, with SCS as a fallback where stated. The high-order relaxations of `bench_rate.ipynb` and `bench_rate_check.ipynb` use their own interior-point solvers in orthogonal (Chebyshev, Legendre) bases, because monomial-basis solves lose accuracy at large relaxation orders.
+Most semidefinite programs are posed with CVXPY and solved with SCS at tolerance 1e-11, first in the monomial basis and, where SCS stops short of that tolerance, in the scaled basis x^α/√α! (a diagonal congruence, the same program); Clarabel is the last resort. `bench_comparison.ipynb` calls SCS (1e-11) and Clarabel directly, `fig_gmm10.ipynb` and `fig_blasso_2d_sketch.ipynb` call SCS at 1e-10; the robustness notebooks use the cascade of the figure notebooks. The high-order relaxations of `bench_rate.ipynb` and `bench_rate_check.ipynb` use their own interior-point solvers in orthogonal (Chebyshev, Legendre) bases, because monomial-basis solves lose accuracy at large relaxation orders.
 
 ## Citation
 

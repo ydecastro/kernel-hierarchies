@@ -1,0 +1,16 @@
+[sketch] n=1000000 m=200 time 3.7s | noise linf 2.20e-03 rms 8.58e-04 | trunc(r=6) linf 2.85e-08 rms 2.26e-09 | Ghat min 0.511 | max|xi^T t_k| 0.35
+[sdp] p=10 D=3 r=6 d=0: N=8008 moments, M_D 286x286, M_2(g) 66x66, build 0.3s
+[sdp] SCS status=optimal value=0.0009978071212123428 iters=350 time 8.5s (solver 7.2137639579999995) | maxrss 1.91 GB
+[rank] masses L(theta): + 0.995433, - -9.37e-14 | ranks M_t(y+) (tol 0.001): {0: 1, 1: 3, 2: 3, 3: 3}
+       sv M_0: 1.0e+00
+       sv M_1: 1.0e+00 5.3e-02 3.0e-02 8.2e-12 7.1e-12 6.1e-12 5.4e-12 3.6e-12
+       sv M_2: 1.0e+00 5.4e-02 3.1e-02 4.5e-10 3.9e-10 3.6e-10 4.8e-11 4.2e-11
+       sv M_3: 1.0e+00 5.4e-02 3.1e-02 4.5e-10 3.9e-10 3.7e-10 5.5e-11 5.3e-11
+[extract] 3 atoms, weights [0.38937 0.25008 0.35598]; match {'pos_err': [0.1052804101052817, 0.12819553222460184, 0.16789951484511362], 'w_err': [0.04401963800672526, 0.03937225209363904, 8.017212727462475e-05], 'pos_err_max': 0.16789951484511362, 'w_err_max': 0.04401963800672526}
+[value] rho (SDP) = 9.978071212123e-04 | J~(extracted) = 9.978071212113e-04 | J~(truth) = 1.000367995799e-03
+[polish] |grad| 5.4e-17 after 2 Newton its (0.0s); J~(polished) = 9.978071212113349e-04; moved pos 4.9e-08, w 4.0e-08; match {'pos_err': [0.10528043685940806, 0.12819554513036807, 0.16789955531663148], 'w_err': [0.04401961888644479, 0.03937221185990425, 8.019323913827092e-05], 'pos_err_max': 0.16789955531663148, 'w_err_max': 0.04401961888644479}
+[gap] (J~ext - J~pol)/J~pol = 1.09e-15 ; (J~pol - rho)/J~pol = -1.01e-12
+[polish exact exp] J = 9.978071212038e-04 |grad| 2.7e-16; match {'pos_err': [0.10528037247079368, 0.12819559765616584, 0.16789960224007078], 'w_err': [0.0440197737850378, 0.03937230241679107, 8.025758752405743e-05], 'pos_err_max': 0.16789960224007078, 'w_err_max': 0.0440197737850378}
+[cert] eta at polished atoms: [1. 1. 1.]; multistart sup_X eta = 1.000000000000 (sup-1 = 3.24e-14)
+[sos] identity residual: coeff linf 9.4e-14, sup bound 2.6e-10 (= 2.6e-07 x pen); min eig Z0 -6.6e-20, Z1 -3.0e-20
+[done] total 13.0s
